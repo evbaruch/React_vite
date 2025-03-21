@@ -77,29 +77,9 @@ export default function List() {
   return (
     <div style={{ width: "100%", padding: "20px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", borderRadius: "10px" }}>
       <h2 style={{ textAlign: "center" }}>Task Manager Component</h2>
-      <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "20px" }}>
-        <input
-          type="text"
-          placeholder="Search..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          style={{ padding: "5px", marginRight: "10px" }}
-        />
-        <button onClick={applyFilter} style={{ padding: "5px 10px" }}>
-          <span role="img" aria-label="search">🔍</span>
-        </button>
-      </div>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
-        <input
-          type="text"
-          value={newItem}
-          onChange={(e) => setNewItem(e.target.value)}
-          placeholder="New task"
-          style={{ flex: "2", marginRight: "10px", padding: "5px" }}
-        />
-        <button onClick={addItem} style={{ padding: "5px 10px" }}>Add Item</button>
-        <div style={{ position: "relative" }}>
-          <button onClick={() => setMenuOpen(!menuOpen)} style={{ padding: "5px 10px" }}>☰</button>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <button onClick={() => setMenuOpen(!menuOpen)} style={{ padding: "5px 10px", marginRight: "10px" }}>☰</button>
           {menuOpen && (
             <div style={{ position: "absolute", top: "100%", left: 0, backgroundColor: "white", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", zIndex: 1, width: "200px", padding: "10px", borderRadius: "5px" }}>
               <button style={{ width: "100%", marginBottom: "5px" }} onClick={removeAllItems}>Remove All Items</button>
@@ -112,30 +92,52 @@ export default function List() {
               <button style={{ width: "100%", marginBottom: "5px" }} onClick={resetList}>Reset List</button>
             </div>
           )}
+          <input
+            type="text"
+            placeholder="Search..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            style={{ padding: "5px", marginRight: "10px" }}
+          />
+          <button onClick={applyFilter} style={{ padding: "5px 10px" }}>
+            <span role="img" aria-label="search">🔍</span>
+          </button>
         </div>
       </div>
-      <ul style={{ listStyleType: "none", padding: 0 }}>
-        {items
-          .filter((item) => item.value.includes(filter))
-          .map((item) => (
-            <li key={item.id} style={{ display: "flex", alignItems: "center", marginBottom: "10px" }}>
-              <input
-                type="checkbox"
-                checked={item.checked}
-                onChange={() =>
-                  setItems(
-                    items.map((i) =>
-                      i.id === item.id ? { ...i, checked: !i.checked } : i
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
+        <input
+          type="text"
+          value={newItem}
+          onChange={(e) => setNewItem(e.target.value)}
+          placeholder="New task"
+          style={{ flex: "2", marginRight: "10px", padding: "5px" }}
+        />
+        <button onClick={addItem} style={{ padding: "5px 10px" }}>Add Item</button>
+      </div>
+      <div>
+        <ul style={{ listStyleType: "none", padding: 0 }}>
+          {items
+            .filter((item) => item.value.includes(filter))
+            .map((item) => (
+              <li key={item.id} style={{ display: "flex", alignItems: "center", marginBottom: "10px" }}>
+                <input
+                  type="checkbox"
+                  checked={item.checked}
+                  onChange={() =>
+                    setItems(
+                      items.map((i) =>
+                        i.id === item.id ? { ...i, checked: !i.checked } : i
+                      )
                     )
-                  )
-                }
-                style={{ marginRight: "10px" }}
-              />
-              <span style={{ flex: "1" }}>{item.value}</span>
-              <button onClick={() => removeItem(item.id)} style={{ padding: "5px 10px" }}>Remove</button>
-            </li>
-          ))}
-      </ul>
+                  }
+                  style={{ marginRight: "10px" }}
+                />
+                <span style={{ flex: "1" }}>{item.value}</span>
+                <button onClick={() => removeItem(item.id)} style={{ padding: "5px 10px" }}>Remove</button>
+              </li>
+            ))}
+        </ul>
+      </div>
     </div>
   );
 }

@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  width: 100%;
 }
 
 .logo {
@@ -47,6 +48,7 @@
   justify-content: space-around;
   align-items: flex-start;
   gap: 1em;
+  width: 100%;
 }
 
 .flexItem {
