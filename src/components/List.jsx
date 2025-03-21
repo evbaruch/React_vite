@@ -78,7 +78,7 @@ export default function List() {
     <div style={{ width: "100%", padding: "20px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", borderRadius: "10px" }}>
       <h2 style={{ textAlign: "center" }}>Task Manager Component</h2>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
-        <div style={{ display: "flex", alignItems: "center" }}>
+        <div style={{ display: "flex", alignItems: "center", position: "relative" }}>
           <button onClick={() => setMenuOpen(!menuOpen)} style={{ padding: "5px 10px", marginRight: "10px" }}>☰</button>
           {menuOpen && (
             <div style={{ position: "absolute", top: "100%", left: 0, backgroundColor: "white", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", zIndex: 1, width: "200px", padding: "10px", borderRadius: "5px" }}>
