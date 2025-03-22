@@ -4,10 +4,16 @@ import Clock from './components/Clock'
 import List from './components/List'
 import AlertBar from './components/AlertBar'
 
+let name = prompt('What is your name?')
+  if (!name) {
+    name = 'User'
+  }
+
 function App() {
+  
   return (
     <main>
-      <h1>App</h1>
+      <h1>{name}'s App</h1>
       <div className='flexBox'>
         <div className='flexItem'>
           <Clock />
