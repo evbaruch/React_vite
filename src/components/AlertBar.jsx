@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Div from "./Div";
 
 // this is a component that will display an alert bar 
 // the alert bar will have a header and a message with
@@ -55,13 +56,13 @@ const AlertBar = () => {
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", padding: "20px", borderRadius: "10px", marginBottom: "20px", transition: "all 0.3s ease-in-out", backgroundColor: "#f9f9f9", width: "100%" }}>
-      <h2 style={{ color: "#333", marginBottom: "10px", transition: "color 0.3s ease-in-out" }}>{alertMessages[alertIndex].header}</h2>
-      <p style={{ color: "#666", marginBottom: "20px", transition: "color 0.3s ease-in-out" }}>{alertMessages[alertIndex].message}</p>
+    <Div style={{ display: "flex", flexDirection: "column", alignItems: "center", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", padding: "20px", borderRadius: "10px", marginBottom: "20px", transition: "all 0.3s ease-in-out", width: "100%" }}>
+      <h2 style={{marginBottom: "10px", transition: "color 0.3s ease-in-out" }}>{alertMessages[alertIndex].header}</h2>
+      <p style={{marginBottom: "20px", transition: "color 0.3s ease-in-out" }}>{alertMessages[alertIndex].message}</p>
       <button onClick={handleNextAlert} style={{ padding: "10px 20px", borderRadius: "5px", border: "none", backgroundColor: "#007BFF", color: "white", cursor: "pointer", transition: "background-color 0.3s ease-in-out" }}>
         Next Alert
       </button>
-    </div>
+    </Div>
   );
 };
 

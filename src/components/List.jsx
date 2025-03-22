@@ -1,4 +1,5 @@
 import React from "react";
+import Div from "./Div";
 
 // this is a component that will display a list of items
 // the list will have a checkbox next to each item
@@ -75,7 +76,7 @@ export default function List() {
   };
 
   return (
-    <div style={{ width: "100%", padding: "20px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", borderRadius: "10px" }}>
+    <Div style={{ width: "100%", padding: "20px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", borderRadius: "10px" }}>
       <h2 style={{ textAlign: "center" }}>Task Manager Component</h2>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
         <div style={{ display: "flex", alignItems: "center", position: "relative" }}>
@@ -138,6 +139,6 @@ export default function List() {
             ))}
         </ul>
       </div>
-    </div>
+    </Div>
   );
 }

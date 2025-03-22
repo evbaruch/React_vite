@@ -1,4 +1,5 @@
 import React from "react";
+import Div from "./Div";
 
 // this is a component that will display the current time
 // it will update every second
@@ -25,7 +26,7 @@ export default function Clock() {
   const numbers = Array.from({ length: 12 }, (_, i) => i + 1);
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", padding: "20px", borderRadius: "10px", width: "100%" }}>
+    <Div style={{ display: "flex", flexDirection: "column", alignItems: "center", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", padding: "20px", borderRadius: "10px", width: "100%" }}>
       <h2>Clock Component</h2>
       <div style={{ position: "relative", width: "200px", height: "200px", borderRadius: "50%", border: "2px solid black" }}>
         {numbers.map((number) => {
@@ -97,6 +98,6 @@ export default function Clock() {
           }}
         />
       </div>
-    </div>
+    </Div>
   );
 }
